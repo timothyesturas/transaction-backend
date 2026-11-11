@@ -1,101 +1,124 @@
-# Transaction Backend
+TRANSACTION BACKEND
+===================
 
-## Prerequisites
+STEP 1: INSTALL THE REQUIRED SOFTWARE
+-------------------------------------
 
-Make sure the following tools are installed:
+Before running the application, install the following programs:
 
-- Git
-- Java JDK 17
-- Apache Maven
+1. Git
+   - Download Git from https://git-scm.com/downloads.
+   - Run the installer.
+   - Follow the installation instructions.
 
-Verify the installations:
+2. Java Development Kit (JDK) 17
+   - Download and install JDK 17.
+   - Make sure Java is added to your system PATH.
 
-```bash
-git --version
-java --version
-mvn --version
-```
+3. Apache Maven
+   - Download Maven from https://maven.apache.org/download.cgi.
+   - Extract the downloaded archive to a folder on your computer.
+   - Add Maven's bin folder to your system PATH.
 
-## Installation and Setup
+STEP 2: VERIFY THE INSTALLATIONS
+--------------------------------
 
-### Step 1. Clone the Repository
+Open Command Prompt and run each command:
 
-```bash
-git clone <BACKEND_REPOSITORY_URL>
-```
+    git --version
 
-### Step 2. Navigate to the Project Directory
+    java --version
 
-```bash
-cd transaction-backend
-```
+    mvn --version
 
-### Step 3. Build the Project
+Each command should display its installed version. If a command is not recognized, check that the program is installed and its folder has been added to PATH.
 
-```bash
-mvn clean install
-```
+STEP 3: CLONE THE BACKEND REPOSITORY
+------------------------------------
 
-Wait for the build to finish successfully.
+1. Open Command Prompt.
+2. Navigate to the folder where you want to save the project. For example:
 
-### Step 4. Run the Application
+    cd C:\\Projects
 
-```bash
-mvn spring-boot:run
-```
+3. Clone the backend repository. Replace the URL below with the actual GitHub repository URL:
 
-### Step 5. Access the Backend API
+    git clone <BACKEND_REPOSITORY_URL>
 
-Once the application has started successfully, the backend will be accessible at:
+4. Open the project folder:
 
-```text
-http://localhost:8081
-```
+    cd transaction-backend
 
-### Step 6. Verify the Application
+STEP 4: BUILD THE APPLICATION
+-----------------------------
 
-Open Postman or another API testing tool.
+In the project folder, run:
 
-**Get All Transactions**
+    mvn clean install
 
-- Method: `GET`
-- URL: `http://localhost:8081/transactions`
+Wait for Maven to finish. This command downloads the required project dependencies, compiles the source code, and runs the configured tests.
 
-**Add a Transaction**
+If the build completes successfully, Maven displays BUILD SUCCESS.
 
-- Method: `POST`
-- URL: `http://localhost:8081/transactions`
-- Header: `Content-Type: application/json`
-- Body: `raw` → `JSON`
+STEP 5: RUN THE BACKEND APPLICATION
+-----------------------------------
 
-Sample Request Body:
+In the same project folder, run:
 
-```json
-{
-    "transactionDate": "2025-03-01",
-    "accountNumber": "7289-3445-1121",
-    "accountHolderName": "Maria Johnson",
-    "amount": 150.00,
-    "status": "Pending"
-}
-```
+    mvn spring-boot:run
 
-Make sure the JSON field names and values match the `TransactionRequest` DTO.
+Wait for the application to start. The backend is running when the Spring Boot startup messages appear and the application reports that it has started.
 
-## Stopping the Application
+STEP 6: ACCESS THE BACKEND
+--------------------------
 
-To stop the running Spring Boot application:
+Open a web browser or API testing tool and use:
 
-1. Go to the terminal where the application is running.
-2. Press `CTRL + C`.
-3. Wait for the application to shut down.
+    http://localhost:8081
 
-## Available Commands
+To retrieve all transactions, send a GET request to:
 
-| Command | Description |
-|---|---|
-| `mvn clean` | Clean previous build files. |
-| `mvn compile` | Compile the application. |
-| `mvn test` | Run automated tests. |
-| `mvn clean install` | Build and package the application. |
-| `mvn spring-boot:run` | Run the application. |
+    http://localhost:8081/transactions
+
+To add a transaction, send a POST request to:
+
+    http://localhost:8081/transactions
+
+Set the request header:
+
+    Content-Type: application/json
+
+Use this sample JSON request body:
+
+    {
+        "transactionDate": "2025-03-01",
+        "accountNumber": "7289-3445-1121",
+        "accountHolderName": "Maria Johnson",
+        "amount": 150.00,
+        "status": "Pending"
+    }
+
+STEP 7: STOP THE APPLICATION
+----------------------------
+
+1. Return to the Command Prompt window where the backend is running.
+2. Press CTRL + C.
+3. If Command Prompt asks you to terminate the process, type Y and press ENTER.
+
+The backend application will stop.
+
+STEP 8: RUN THE APPLICATION AGAIN
+---------------------------------
+
+Whenever you want to run the backend again:
+
+1. Open Command Prompt.
+2. Navigate to the backend project folder. For example:
+
+    cd C:\\Projects\\transaction-backend
+
+3. Start the application:
+
+    mvn spring-boot:run
+
+Keep the Command Prompt window open while using the backend.
