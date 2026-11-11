@@ -69,6 +69,8 @@ In the same project folder, run:
 
 Wait for the application to start. The backend is running when the Spring Boot startup messages appear and the application reports that it has started.
 
+ATTENTION: IF THERE IS AN ERROR RELATED TO THE .CSV FILE, TRY FORMATTING THE DATES AT FIRST COLUMN BY SELECTING ALL THE DATES AND PRESSING CTRL+1 THEN CHOOSE THE CORRECT FORMAT(YYYY-MM-DD), STOP THE APP AND START AGAIN. YOU SHOULD NOT BE ABLE TO ENCOUNTER AN ERROR ABOUT THE .CSV FILE
+
 STEP 6: ACCESS THE BACKEND
 --------------------------
 
