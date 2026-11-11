@@ -25,26 +25,21 @@ public class TransactionController {
 
     private final TransactionService transactionService;
 
-    public TransactionController(
-            TransactionService transactionService) {
-
+    public TransactionController(TransactionService transactionService) {
         this.transactionService = transactionService;
     }
 
     @GetMapping
     public ResponseEntity<List<Transaction>> getAllTransactions() {
-
         List<Transaction> transactions = transactionService.getAllTransactions();
-
-        return ResponseEntity.ok(transactions);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(transactions);
     }
 
     @PostMapping
-    public ResponseEntity<Transaction> addTransaction(
-            @RequestBody TransactionRequest request) {
-
+    public ResponseEntity<Transaction> addTransaction(@RequestBody TransactionRequest request) {
         Transaction transaction = transactionService.addTransaction(request);
-
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(transaction);
