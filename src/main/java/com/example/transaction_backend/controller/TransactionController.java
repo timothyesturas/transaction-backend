@@ -17,7 +17,10 @@ import com.example.transaction_backend.service.TransactionService;
 
 @RestController
 @RequestMapping("/transactions")
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin(origins = {
+	    "http://localhost:4200",
+	    "http://localhost:4201"
+	})
 public class TransactionController {
 
     private final TransactionService transactionService;
